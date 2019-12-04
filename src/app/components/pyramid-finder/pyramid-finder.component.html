@@ -1,0 +1,23 @@
+<h4>This is my awesome pyramid finding component.</h4>
+<h4>Designed by Isabel Glasbrenner</h4>
+<p>Enter a word to test if its a pyrmaid.</p>
+
+<div>
+  <div>
+    <form [formGroup]="pyramidForm" class="pyramidForm" (ngSubmit)="onSubmit()">
+      <input type="text" formControlName="triedPyramid" class="form-control" />
+      <br />
+      <button mat-raised-button color="primary" (click)="onSubmit()">
+        Find if Pyramid!
+      </button>
+    </form>
+  </div>
+  <div>
+    <div *ngIf="beganFinding && !isPyramid">
+      <h2>"{{ this.triedWord }}" is not a pyramid</h2>
+    </div>
+    <div *ngIf="beganFinding && isPyramid">
+      <h2>"{{ this.triedWord }}" is a pyramid!</h2>
+    </div>
+  </div>
+</div>
